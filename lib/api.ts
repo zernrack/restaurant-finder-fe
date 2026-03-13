@@ -15,8 +15,21 @@ export async function searchRestaurants(message: string) {
 
   if (!res.ok) {
     const body = await res.text();
+
+    let backendError: string | undefined;
+
+    if (body) {
+      try {
+        const parsed = JSON.parse(body) as { error?: string };
+        backendError = parsed?.error;
+      } catch {
+        backendError = undefined;
+      }
+    }
+
     throw new Error(
-      `Failed to fetch restaurants (status ${res.status})${body ? `: ${body}` : ""}`,
+      backendError ??
+        `Failed to fetch restaurants (status ${res.status})${body ? `: ${body}` : ""}`,
     );
   }
 

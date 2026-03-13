@@ -5,6 +5,7 @@ import { searchRestaurants } from "@/lib/api";
 import { Restaurant } from "@/lib/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Search, AlertCircle } from "lucide-react";
 
 export default function SearchForm({
@@ -67,10 +68,11 @@ export default function SearchForm({
       </form>
 
       {error && (
-        <div className="flex gap-2 p-3 rounded-lg bg-destructive/10 text-destructive border border-destructive/20">
-          <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-          <p className="text-sm">{error}</p>
-        </div>
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Search failed</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
       )}
     </div>
   );

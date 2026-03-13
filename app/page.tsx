@@ -16,7 +16,7 @@ export default function Page() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5">
+    <main className="min-h-screen bg-linear-to-br from-background via-background to-accent/5">
       {/* Header Section */}
       <div className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
