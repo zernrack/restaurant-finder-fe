@@ -30,7 +30,9 @@ export default function SearchForm({
       onResults(data.results);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Failed to fetch restaurants",
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again.",
       );
     } finally {
       setLoading(false);
@@ -70,7 +72,7 @@ export default function SearchForm({
       {error && (
         <Alert variant="destructive">
           <AlertCircle className="h-4 w-4" />
-          <AlertTitle>Search failed</AlertTitle>
+          <AlertTitle>We couldn’t complete your search</AlertTitle>
           <AlertDescription>{error}</AlertDescription>
         </Alert>
       )}

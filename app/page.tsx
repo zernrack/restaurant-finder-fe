@@ -54,7 +54,7 @@ export default function Page() {
               <p className="text-muted-foreground max-w-md mx-auto">
                 Enter a location or cuisine type to discover restaurants near
                 you. Try searching for &quot;Italian restaurants in New York&quot; or
-                &quot;sushi near me open now&quot;.
+                &quot;sushi near LA open now&quot;.
               </p>
             </div>
           ) : restaurants.length > 0 ? (
