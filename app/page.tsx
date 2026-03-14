@@ -4,7 +4,7 @@ import { useState } from "react";
 import SearchForm from "@/components/search-form";
 import RestaurantCard from "@/components/restaurant-card";
 import { Restaurant } from "@/lib/schema";
-import { Utensils, MapPin } from "lucide-react";
+import { Utensils, MapPin, Heart } from "lucide-react";
 
 export default function Page() {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
@@ -16,7 +16,7 @@ export default function Page() {
   };
 
   return (
-    <main className="min-h-screen bg-linear-to-br from-background via-background to-accent/5">
+    <main className="min-h-screen flex flex-col bg-linear-to-br from-background via-background to-accent/5">
       {/* Header Section */}
       <div className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -35,7 +35,7 @@ export default function Page() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-1 w-full">
         {/* Search Section */}
         <div className="mb-12">
           <SearchForm onResults={handleResults} />
@@ -90,6 +90,24 @@ export default function Page() {
           )}
         </div>
       </div>
+
+      <footer className="border-t border-border/60 py-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-sm text-muted-foreground flex items-center justify-center gap-1.5">
+            Made with
+            <Heart className="w-4 h-4 text-primary fill-primary" aria-hidden="true" />
+            by
+            <a
+              href="https://rrack.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              rrack.dev
+            </a>
+          </p>
+        </div>
+      </footer>
     </main>
   );
 }
